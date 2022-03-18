@@ -1,11 +1,12 @@
 % !Mode:: "TeX:UTF-8" 
 
-% 关于公式的几个定义
+% custom commands
 \newcommand{\sumit}{\sum\limits_{i=1}^n\sum\limits_{t=1}^T} 
-\newcommand{\sumitcut}{\sum\limits_{i=1}^n\sum\limits_{t=1}^T} 
-%\newcommand{\sumit}{\sum\limits_{i=1}^N\sum\limits_{t=1}^T} 
-%\newcommand{\sumitcut}{\sum\limits_{i=1}^N\sum\limits_{t=2}^T} 
-% 定理环境格式定义
+\newcommand{\sumitcut}{\sum\limits_{i=1}^n\sum\limits_{t=2}^T} 
+%\newcommand{\sumit}{\sum\limits_{i=1}^n\sum\limits_{t=1}^T} 
+%\newcommand{\sumitcut}{\sum\limits_{i=1}^n\sum\limits_{t=2}^T} 
+
+% Theorem, corollary, lemma, etc environments
 \newtheorem{assumption}{Assumption}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
@@ -20,7 +21,7 @@
 \numberwithin{remark}{chapter}
 \numberwithin{proof}{chapter}
 
-%======================================== Header/Footnote=========================================
+%  Header Footnote 
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{Chapter \thechapter}
@@ -30,18 +31,18 @@
 \renewcommand{\headrulewidth}{2pt}
 \renewcommand{\footrulewidth}{1pt}
 
-% 公式跨页设置，公式之前可以换页，公式出现在页面顶部
+% math formula cross-page
 \predisplaypenalty=0
 \allowdisplaybreaks[4]
 
-% 章节格式定义
+% chapter format
 \setcounter{secnumdepth}{4} \setcounter{tocdepth}{2}
 \titleformat{\section}{}{\thesection}{0.5em}{}
 \titlespacing{\section}{0pt}{3mm}{3mm}
 \titleformat{\subsection}{}{\thesubsection}{0.5em}{}
 \titlespacing{\subsection}{2.13em}{3mm}{3mm}
 
-% 避免宏包 hyperref 和 arydshln 不兼容带来的目录链接失效的问题。
+%  hyperref, arydshln could leads to TOC link invalid solved by
 \def\temp{\relax}
 \let\temp\addcontentsline
 \gdef\addcontentsline{\phantomsection\temp}
@@ -54,5 +55,6 @@
 
 \makeatother
 
-
+% avoid that page text stretches over whole page with "twoside" option
+\raggedbottom
 
